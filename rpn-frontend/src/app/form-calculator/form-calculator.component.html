@@ -1,0 +1,27 @@
+<form [formGroup]="formCalculator">
+
+        <div class="mb-3">
+            <label for="stack-id" class="form-label">Stack Id</label>
+            <input type="text" class="form-control" [ngClass]="{'has-error': formCalculator.get('stackId')?.invalid && (formCalculator.get('stackId')?.dirty || formCalculator.get('stackId')?.touched)}" id="stack-id" placeholder="" formControlName="stackId">
+            <div class="has-error" *ngIf="formCalculator.get('stackId')?.invalid && (formCalculator.get('stackId')?.dirty || formCalculator.get('stackId')?.touched)">
+                Please provide a stack Id.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="operand" class="form-label">Operand:</label>
+            <input type="text" class="form-control" id="operand" placeholder="" formControlName="operand">
+        </div>
+
+        <div class="mb-3">
+            <label for="operator" class="form-label">Operator:</label>
+            <input type="text" class="form-control" id="operator" placeholder="" formControlName="operator" [ngClass]="{'has-error': formCalculator.get('operator')?.invalid && (formCalculator.get('operator')?.dirty || formCalculator.get('operator')?.touched)}">
+            <div class="has-error" *ngIf="formCalculator.get('operator')?.invalid && (formCalculator.get('operator')?.dirty || formCalculator.get('operator')?.touched)">
+                Should be valid operator (*, -, +, /)
+            </div>
+        </div>
+        
+        <button type="button" class="btn btn-primary  btn-sm enter-operand" [disabled]="!formCalculator.get('operand')?.value" (click)="addOperand()"> Enter Operand </button>
+        <button type="button" class="btn btn-primary btn-sm  calculate" [disabled]="formCalculator.get('operator')?.invalid" (click)="applyOperator()"> Calculate </button>
+
+</form>

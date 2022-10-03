@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="row mb-3">
+        <button class="btn btn-sm btn-success" (click)="createStack()">Create a stack</button>
+    </div>
+    <div class="col-md-4 card border-dark m-4" *ngFor="let stack of stacks">
+        <div class="card-header">
+            <button type="button" class="btn btn-danger btn-sm text-center" (click)="remove(stack.id)">Remove</button>
+            <p class="stack-id mt-3">Stack ID : {{stack.id}}</p>
+        </div>
+        <div class="card-body text-dark">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let st of stack.stack">{{st}}</li>
+            </ul>
+        </div>
+        
+    </div>
+</div>

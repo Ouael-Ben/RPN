@@ -1,0 +1,7 @@
+.has-error {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+.calculate {
+    margin-left: 10px;
+}
